@@ -1,0 +1,38 @@
+<%- include ('../partials/header') %>
+<title>Panier</title>
+</head>
+<body>
+    <h1>Votre Panier</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Retirer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cartItems.forEach(item => { %>
+            <tr>
+                <td>
+                    <img src="<%= item.image %>" alt="<%= item.name %>" style="width:50px;height:70px;">
+                </td>
+                <td><%= item.name %></td>
+                <td><%= item.price %> €</td>
+                <td><%= item.quantity %></td>
+                <td>
+                    <form action="/remove-from-cart" method="POST" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= item.id %>">
+                        <button type="submit" class="remove_cart">&times;</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href='/articles' class="btn_new">Retour au Catalogue</a>
+
+</body>
+<%- include ('../partials/footer') %>

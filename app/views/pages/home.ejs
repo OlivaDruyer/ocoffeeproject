@@ -1,0 +1,48 @@
+<%- include ('../partials/header') %>
+    <main>
+    <div class="container">
+     <div class="container-up">
+      <section id="home">
+       <h1>Hauts-de-Cloques vous ouvre les portes de l'excellence caféière avec Ocoffee</h1>
+       <p>
+        Plongez dans l'univers d'Ocoffee, votre détaillant de café et de produits associés, niché à Hauts-de-Cloques. Nous importons directement nos produits des producteurs, en les sélectionnant avec rigueur selon des critères de qualité stricts. Reconnu à l'échelle départementale, Ocoffee vous invite à savourer la richesse de nos arômes et la profondeur de nos saveurs, soigneusement choisies pour vous offrir une expérience sensorielle inoubliable.
+Que vous soyez un passionné de café expérimenté ou un novice curieux, notre collection exclusive de cafés haut de gamme vous promet un voyage gustatif unique. Explorez nos variétés sélectionnées avec soin et plongez dans les histoires captivantes de nos grains, récoltés aux quatre coins du monde. Nous sommes heureux de partager notre passion avec vous et de vous guider dans votre exploration du café.</p>
+      </section>
+      <section id="picture">
+        <img src="/images/accueilocoffee.png" alt="image de graines de café dans les deux mains">
+        <a href="/catalog" class="btn_cata">Voir le Catalogue</a>
+      </section>
+    </div>
+      
+        <h2>Les nouveautés</h2>
+        
+        <article class="latest-products-article">
+          <div class="container-list">
+            <% threecoffees.forEach((coffee) => { %>
+                <div class="one_article_list">
+                <h4><%= coffee.name %></h4>
+                 <div class="article-pic_list">
+                  <img
+                    src="/images/coffees/<%= coffee.reference %>.png"
+                    alt="image de graines de café originaire de<%= coffee.origin %>"/>
+                </div>
+                <p>Prix: <%= coffee.price_kg %> €/kg</p>
+                <div class="article-description_list">
+                      <form action="/add-to-cart" method="POST">
+                      <input type="hidden" name="id" value="<%= coffee.id %>">
+                      <input type="hidden" name="image" value="/images/coffees/<%= coffee.reference %>.png">
+                      <input type="hidden" name="name" value="<%= coffee.name %>">
+                      <input type="hidden" name="price" value="<%= coffee.price_kg %>">
+                      <input type="hidden" name="quantity" value="1">
+                      <input type="image" src="/images/shopping-basket_258450.png" alt="Ajouter au panier" class="add_cart">
+                    </form>
+                    <a href='/article/<%= coffee.id %>' class="btn_cata_article">Découvrir</a>
+                </div>
+          </div>
+      <% }); %>
+        </div>
+                
+      </section>
+     </div>
+    </main>
+<%- include ('../partials/footer') %>

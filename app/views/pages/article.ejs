@@ -1,0 +1,25 @@
+<%- include ('../partials/header') %>
+
+<main>
+  <div class="article">
+    <h4><%= coffee.name %></h4>
+
+    <div class="article-pic">
+      <img
+        src="/images/coffees/<%= coffee.reference %>.png"
+        alt="image de graines de café originaire de<%= coffee.origin %>">
+    </div>
+
+    <div class="article-description">
+    <p><%= coffee.description %></p>  
+    <p>Origine: <%= coffee.origin %></p>
+    <p>Prix: <%= coffee.price_kg %> €/kg</p>
+    <p>Ref: <%= coffee.reference %></p>
+    <p>Disponibilité: <%= coffee.available ? "oui" : "Non" %></p>
+
+      <a href="/catalog" class="btn_cata_articlecenter">Voir le Catalogue</a>
+    </div>
+  </div>
+</main>
+
+<%- include ('../partials/footer') %>

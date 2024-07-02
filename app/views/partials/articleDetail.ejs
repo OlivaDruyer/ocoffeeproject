@@ -1,0 +1,18 @@
+<div class="articleDetail">
+    <h4><%= coffee.name %></h4>
+
+    <div class="article-pic">
+      <img
+        src="/images/coffees/<%= coffee.reference %>.png"
+        alt="image de graines de café originaire de<%= coffee.origin %>"
+      />
+    </div>
+
+    <div class="article-description" 
+      <p> <%= coffee.description %></p>  
+      <p>Origine: <%= coffee.origin %></p>
+      <p>Prix au kilo: <%= coffee.price_kg %></p>
+
+      <a href="/catalog" class="btn_cata_article">Voir le Catalogue</a>
+    </div>
+  </div>

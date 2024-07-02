@@ -1,0 +1,38 @@
+<%- include ('../partials/header') %>
+
+<main>
+  <div class="container">
+  <div class="shop-description">
+    <img src="/images/ocoffeeboutiquePNG.png" alt="photo de la boutique et un dessin des frères Peppers" />
+  </div>
+  <div class="shop-map-contact">
+    <div class="shop-map">
+      <h2>Où nous trouver</h2>
+        <img src="/images/plan ocoffee.webp" alt="image de la map de la boutique" />
+        <p>6, rue O'clock<br>
+          75000 Hauts-De-Cloques
+        </p>
+    </div>
+    <div class="shop-contact">
+        <h2>Nous contacter</h2>
+        <form action="/contact" method="POST">
+          <div class="form-group">
+              <label for="name">Nom:</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit"class="btn_cata-mini">Envoyer</button>
+      </form>
+  </div>
+</div>
+
+</main>
+
+<%- include ('../partials/footer') %>

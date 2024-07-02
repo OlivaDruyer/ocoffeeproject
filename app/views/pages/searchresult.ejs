@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<main>
+  <h2>Catégorie: <%= category %></h2>
+  <div class="container-searchlist">
+    <% coffeesByCategory.forEach((coffeeByCategory) => { %>
+      <div class="one_article_list">
+        <h4><%= coffeeByCategory.name %></h4>
+        <div class="article-pic_list">
+          <img
+            src="/images/coffees/<%= coffeeByCategory.reference %>.png"
+            alt="image de graines de café originaire de <%= coffeeByCategory.origin %>"
+          >
+        </div>
+        <div class="article-description_list">
+          <p><%= coffeeByCategory.description %></p>  
+          <p>Origine: <%= coffeeByCategory.origin %></p>
+          <p>Prix au kilo: <%= coffeeByCategory.price_kg %></p>
+          <p>Disponibilité: <%= coffeeByCategory.available ? "oui" : "Non" %></p>
+          <a href='/article/<%= coffeeByCategory.id %>' class="btn_cata_article">Découvrir</a>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  <a href='/articles' class="btn_cata">Voir tout</a>
+</main>
+
+<%- include('../partials/footer') %>

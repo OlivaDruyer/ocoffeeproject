@@ -1,0 +1,33 @@
+<%- include ('../partials/header') %>
+
+<main>
+    <h1></h1>
+    <div class="container-list">
+      <% coffees.forEach((coffee) => { %>
+          <div class="one_article_list">
+              <h4><%= coffee.name %></h4>
+              <div class="article-pic_list">
+                  <img src="/images/coffees/<%= coffee.reference %>.png" alt="image de graines de café originaire de <%= coffee.origin %>" />
+              </div>
+              <div class="article-description_list">
+                  <p><%= coffee.description %></p>  
+                  <p>Origine: <%= coffee.origin %></p>
+                  <p>Prix: <%= coffee.price_kg %> €/kg</p>
+                   <!--<p>Disponibilité: <%= coffee.available ? "oui" : "Non" %></p>-->
+                  <p>Ref: <%= coffee.reference %></p>
+                  <form action="/add-to-cart" method="POST">
+                      <input type="hidden" name="id" value="<%= coffee.id %>">
+                      <input type="hidden" name="image" value="/images/coffees/<%= coffee.reference %>.png">
+                      <input type="hidden" name="name" value="<%= coffee.name %>">
+                      <input type="hidden" name="price" value="<%= coffee.price_kg %>">
+                      <input type="hidden" name="quantity" value="1">
+                      <input type="image" src="/images/shopping-basket_258450.png" alt="Ajouter au panier" class="add_cart">
+                    </form>
+                    <a href='/article/<%= coffee.id %>' class="btn_cata_article">Découvrir</a>
+                </div>
+          </div>
+      <% }); %>
+  </div>
+ </main>
+
+ <%- include ('../partials/footer') %>

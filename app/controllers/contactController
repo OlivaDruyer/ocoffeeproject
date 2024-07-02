@@ -1,0 +1,17 @@
+exports.contactForm = (req, res) => {
+    res.render('pages/contact');
+};
+
+exports.submitContactForm = (req, res) => {
+    const { name, email, message } = req.body;
+
+    // Logique de traitement du formulaire (par exemple, envoyer un email)
+    console.log(`Nom: ${name}, Email: ${email}, Message: ${message}`);
+
+    res.redirect('/contact'); // Redirige vers la page de contact après soumission
+
+console.log('contactController methods:', {
+    contactForm: exports.contactForm,
+    submitContactForm: exports.submitContactForm,
+});
+}
