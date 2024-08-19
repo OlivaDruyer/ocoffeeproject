@@ -2,6 +2,7 @@
 // Charger les variables d'environnement
 require('dotenv').config();
 
+
 const sessionMiddleware = require("./app/middlewares/sessionMiddleware.js");
 
 // Importe les dépendances tiers
