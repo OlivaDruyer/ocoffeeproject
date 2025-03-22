@@ -141,7 +141,6 @@ h3 {
 .shop-map {
   display: flex;
   flex-direction: column;
-  
 }
 
 .shop-map img {
@@ -364,16 +363,6 @@ footer {
   justify-content: space-between;
 }
 
-#home {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  gap: 20px;
-  margin:10px;
-  }
-
 .container-searchlist {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -402,7 +391,16 @@ footer {
   margin-left: 80px;
 }
 
-#picture {
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 10px;
+}
+
+.picture {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -411,9 +409,8 @@ footer {
   align-items: center;
 }
 
-#picture img {
-  margin-top: 40px;
-  margin-left: 40px;
+.picture img {
+  margin: 40px 0 0 0;
   width: 88%;
   height: auto;
 }
@@ -540,7 +537,6 @@ button:hover {
   font-size: 1.2em;
 }
 
-
 /* Style pour les liens */
 .navbar-links a {
   text-decoration: none; /* Enlève la décoration par défaut des liens */
@@ -556,13 +552,45 @@ button:hover {
 
 /* Styles pour les écrans de taille max 720px */
 @media screen and (max-width: 720px) {
+  .container-shop,
+  .container-up,
+  .container-searchlist,
+  .container-list,
+  .latest-products-list {
+    grid-template-columns: 1fr;
+  }
+  .container-up {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Retire l'espace entre les éléments */
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .text-content {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #picture {
+    margin-top: 0;
+  }
+
   .menu-hamburger {
     display: block;
   }
+
   .aside {
     display: none;
   }
-    .navbar-links {
+  .navbar-links {
     display: none; /* Par défaut caché pour petits écrans */
     flex-direction: column;
     position: absolute;
@@ -585,21 +613,19 @@ button:hover {
     flex-direction: column;
   }
 
-  /* Reduire les conteneurs et articles à une colonne */
-  .container-shop, .container-up, .container-searchlist, .container-list, .latest-products-list {
-    grid-template-columns: 1fr; /* Une seule colonne */
-  }
-  .container-up{
-    margin: 0 auto;
-  }
-  .article, .one_article_list, .latest-products-article {
+  .article,
+  .one_article_list,
+  .latest-products-article {
     max-width: 100%; /* Occupe toute la largeur disponible */
     margin: 0 auto 20px; /* Centré et avec une marge en bas */
   }
 }
 /* Styles pour les écrans de taille entre 720px et 900px */
 @media screen and (min-width: 721px) and (max-width: 900px) {
-  .container-shop, .container-searchlist, .container-list, .latest-products-list {
+  .container-shop,
+  .container-searchlist,
+  .container-list,
+  .latest-products-list {
     grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
   }
 }
@@ -609,6 +635,4 @@ button:hover {
   .menu-hamburger {
     display: none; /* Caché pour grands écrans */
   }
-  
-  }
-
+}
